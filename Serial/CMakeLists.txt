@@ -1,0 +1,5 @@
+set(SRC SerialScanner.cpp SerialPort.cpp)
+find_library(IOKit IOKit)
+find_library(CoreFoundation CoreFoundation)
+add_library(Serial STATIC ${SRC})
+target_link_libraries(Serial ${IOKit} ${CoreFoundation})
