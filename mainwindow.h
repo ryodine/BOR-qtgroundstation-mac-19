@@ -11,6 +11,7 @@ enum GuiButtons {
     MANUAL_LAND,
     TAKE_PHOTO,
     SAMPLE,
+    LEGZERO,
     NONE
 };
 class MainWindow;

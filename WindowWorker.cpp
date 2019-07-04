@@ -23,6 +23,8 @@ WindowWorker::WindowWorker(::MainWindow& mw, Communication& comms)
                      this,                     [this]{ handleUIButton(Ui::TAKE_PHOTO); });
     QObject::connect(m_mw.getUI()->ping_btn,   &QPushButton::clicked,
                      this,                     [this]{ handleUIButton(Ui::PING); });
+    QObject::connect(m_mw.getUI()->zero_btn,   &QPushButton::clicked,
+                     this,                     [this]{ handleUIButton(Ui::LEGZERO); });
 };
 
 WindowWorker::~WindowWorker() {

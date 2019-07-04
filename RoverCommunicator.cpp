@@ -107,6 +107,15 @@ void Communication::threadfunc() {
                         printf("Ping reply: %s\n", in.getBodyString().c_str());
                     }
                 }; break;
+                case Ui::SAMPLE: {
+                    Message out;
+                    out.addHeader("Action", "soil");
+                    sendMessage(out);
+                    Message in;
+                    if (getMessage(in)) {
+                        printf("Soil reply: %s\n", in.getBodyString().c_str());
+                    }
+                }; break;
                 case Ui::STATUS: {
                     Message out;
                     out.addHeader("Action", "status");
@@ -128,6 +137,33 @@ void Communication::threadfunc() {
                         m_transactionResult = in;
                         
 
+                    }
+                }; break;
+                case Ui::MANUAL_LAND: {
+                    Message out;
+                    out.addHeader("Action", "land");
+                    sendMessage(out);
+                    Message in;
+                    if (getMessage(in)) {
+                        printf("Status reply:\n %s\n", in.getBodyString().c_str());
+                    }
+                }; break;
+                case Ui::ARM_LANDING: {
+                    Message out;
+                    out.addHeader("Action", "arm");
+                    sendMessage(out);
+                    Message in;
+                    if (getMessage(in)) {
+                        printf("Status reply:\n %s\n", in.getBodyString().c_str());
+                    }
+                }; break;
+                case Ui::LEGZERO: {
+                    Message out;
+                    out.addHeader("Action", "zero");
+                    sendMessage(out);
+                    Message in;
+                    if (getMessage(in)) {
+                        printf("Status reply:\n %s\n", in.getBodyString().c_str());
                     }
                 }; break;
                 default: {
